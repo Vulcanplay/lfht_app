@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>精品详情</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-slides autoplay="3000" loop="true" pager="true" paginationType="bullets" zoom="false" class="banner-ion-slides" *ngIf="productItem.attachmentList.length != 0">
+    <ion-slide *ngFor="let slide of productItem.attachmentList" [style.background-image]="getBackground(slide.baseUrl)"></ion-slide>
+  </ion-slides>
+  <ion-list>
+    <ion-item class="product-info" no-lines>
+      <h2 padding-bottom class="normal">{{productItem.productName}}</h2>
+      <p>{{productItem.productDesc}}</p>
+      <ion-note color="oranger" item-end><ion-icon class="iconfont icon-rmb"></ion-icon>{{productItem.productPrice.toFixed(2)}}</ion-note>
+    </ion-item>
+    <div class="hr"></div>
+  </ion-list>
+
+  <div margin-top [innerHTML]="assembleHTML(productItem.itemParticular)"></div>
+
+</ion-content>
+<ion-footer ion-row no-padding no-margin>
+  <button col-2 full no-margin ion-button block color="light" (click)="shoppingCart()"><ion-icon name="cart"></ion-icon><ion-badge *ngIf="cartAmt != '0'">{{cartAmt.length > 99 ? '..' : cartAmt}}</ion-badge></button>
+  <button col full no-margin ion-button block color="energized" (click)="shoppingCartAppend()">加入购物车</button>
+  <button col full no-margin ion-button block color="oranger" (click)="confirm()">立即购买</button>
+</ion-footer>

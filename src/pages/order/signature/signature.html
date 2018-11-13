@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      订单签字
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div #panel class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let path of picturePaths">
+        <div class="swiper-zoom-container">
+          <img data-src="{{path}}" class="swiper-lazy">
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <ion-fab right bottom small>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="signatureCompose()" color="oranger"><ion-icon name="brush"></ion-icon></button>
+      <button ion-fab (click)="upload()" color="base"><ion-icon name="cloud-upload"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

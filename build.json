@@ -1,0 +1,18 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "android.keystore",
+            "storePassword": "yuecheng.0",
+            "alias": "android.keystore",
+            "password" : "yuecheng.0",
+            "keystoreType": ""
+        },
+        "release": {
+            "keystore": "android.keystore",
+            "storePassword": "yuecheng.0",
+            "alias": "android.keystore",
+            "password" : "yuecheng.0",
+            "keystoreType": ""
+        }
+    }
+}

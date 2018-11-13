@@ -1,0 +1,8 @@
+page-category-shopping-cart{
+  [ion-button][disabled]{opacity: 1;}
+  .item.item-ios .checkbox-ios{margin-right:.7em;}
+
+  .cart-no{position: absolute; width: 100%; top: calc(40% - 50px); height: 50px; line-height: 50px; text-align: center; font-size: 2rem; color: #dedede;}
+  .cart-no ion-icon{ font-size: 4rem;}
+  .item-total{ font-size: 1.6rem !important;}
+}

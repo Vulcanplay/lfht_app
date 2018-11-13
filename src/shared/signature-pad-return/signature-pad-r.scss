@@ -1,0 +1,14 @@
+page-modal-signature-pad-r{
+  .content-ios{
+    height: 100%;
+    bottom: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    top: auto;
+  }
+  .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+    border-color: #eaeaea;
+  }
+  canvas{width: 100%; height: calc(100% - 95px); margin-top: 45px; margin-bottom: 45px;}
+  .content-ios, .content-md, .content-wp{background-color: #f3f3f3 !important;}
+}

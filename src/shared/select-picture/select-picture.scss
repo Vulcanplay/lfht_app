@@ -1,0 +1,31 @@
+page-select-picture {
+  .pictures {
+    position: relative;
+    float: left;
+    width: calc(50% - 6px);
+    height: 15rem;
+    margin: 3px;
+    border: .55px solid color($colors, dark);
+    box-sizing: border-box;
+  }
+  .pictures img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .add {
+    font-size: 55px;
+    color: #5c5c5c;
+    text-align: center;
+    border: .55px solid color($colors, dark);
+    line-height: 15rem;
+    vertical-align: middle;
+    border-radius: 4px;
+  }
+
+  .remove {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+}

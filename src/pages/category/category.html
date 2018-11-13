@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar no-border-top>
+    <ion-searchbar [(ngModel)]="searchText" type="search" placeholder="商品名称" clearInput></ion-searchbar>
+    <ion-buttons end>
+      <button ion-button color="dark" (click)="searchData()" class="searchbar-btn">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-grid class="category" no-padding>
+    <ion-row class="first-row">
+      <ion-scroll col col-4 col-md-3 col-lg-2 col-xl-2 scrollY="true">
+        <ion-list class="level-1">
+          <div *ngFor="let lvOne of categoryList">
+            <button ion-item no-padding no-margin text-center (click)="categoryListCtrl(lvOne)">
+              <ion-label padding-left>{{lvOne.categoryName}}&emsp;<ion-icon [name]="lvOne.active == 1 ? 'arrow-dropup' : 'arrow-dropdown'"></ion-icon></ion-label>
+            </button>
+            <ion-list class="level-2" [ngClass]="lvOne.details.length == 0 ? 'no-lines' : ''" no-margin *ngIf="lvOne.active == 1">
+              <button ion-item (click)="getProductList(lvTwo.id)" *ngFor="let lvTwo of lvOne.details" [ngClass]="lvTwo.id == categorySelectId ? 'active' : ''">
+                <ion-label text-right padding-right>{{lvTwo.categoryName}}</ion-label>
+                <ion-badge item-end [color]="lvTwo.id == categorySelectId ? 'base' : 'light'">{{lvTwo.count}}</ion-badge>
+              </button>
+            </ion-list>
+          </div>
+        </ion-list>
+      </ion-scroll>
+      <ion-scroll col col-8 col-md-9 col-lg-10 col-xl-10 scrollY="true">
+        <!-- 暂无精品 -->
+        <div class="product-no" *ngIf="productList.length == 0">暂无精品</div>
+        <ion-list>
+          <button ion-item (click)="details(item)" *ngFor="let item of productList">
+            <ion-thumbnail item-start>
+              <img [src]="item.attachment.baseUrl == '' ? './assets/img/category/default_img.png' : item.attachment.baseUrl"/>
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{item.productName}}</h2>
+              <p margin-vertical>{{item.productDesc}}</p>
+              <p>
+                <ion-note color="danger"><ion-icon class="iconfont icon-rmb"></ion-icon>{{item.productPrice.toFixed(2)}}</ion-note>
+              </p>
+            </ion-label>
+            <button ion-button item-end small clear (click)="$event.stopPropagation();shoppingCartAppend(item)">
+              <ion-icon name="ios-cart-outline" color="danger" class="icon-large"></ion-icon>
+            </button>
+          </button>
+        </ion-list>
+        <ion-fab right bottom>
+          <button ion-fab color="light" (click)="shoppingCart()">
+            <ion-icon name="cart"></ion-icon>
+            <ion-badge *ngIf="cartAmt != '0'">{{cartAmt.length > 99 ? '..' : cartAmt}}</ion-badge>
+          </button>
+        </ion-fab>
+      </ion-scroll>
+    </ion-row>
+  </ion-grid>
+</ion-content>

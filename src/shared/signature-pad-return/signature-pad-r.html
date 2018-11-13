@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar color="light">
+      <ion-title text-center>签字</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="dark" (click)="dismiss()">
+          <ion-icon name="ios-close-outline"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <signature-pad [options]="signaturePadOptions"></signature-pad>
+
+  <ion-footer ion-row no-margin no-padding>
+    <button col full no-margin ion-button block color="dark" (click)="clear()">重签</button>
+    <button col full no-margin ion-button block color="base" (click)="save()">确定</button>
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,9 @@
+<div class="clear-fix" style="padding-top: 2px;" *ngIf="fileObjList">
+  <div *ngFor="let fileObj of fileObjList, let i = index" class="pictures">
+    <button ion-button small color="gary" *ngIf="allowDelete" class="remove" tappable (click)="deletePicture(i)"><ion-icon name="md-trash"></ion-icon></button>
+    <img src="{{fileObj.thumbPath}}" tappable (click)="viewerPicture(i)">
+  </div>
+  <div *ngIf="fileObjList.length<max&&allowAdd" tappable (click)="addPicture()" class="pictures add">
+    <ion-icon name="camera"></ion-icon>
+  </div>
+</div>

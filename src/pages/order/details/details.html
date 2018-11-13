@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>订单详情</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      基本信息
+    </ion-list-header>
+    <ion-item>
+      <ion-label color="dark">订单号</ion-label>
+      <ion-input type="text" [disabled]="true" [(ngModel)]="orderDetails.orderId"></ion-input>
+      <ion-badge item-end [color]="orderDetails.orderStatus == 1 ? 'danger' : orderDetails.orderStatus == 2 ? 'secondary' : 'gary'">{{orderDetails.orderStatus == 1 ? '待支付' : orderDetails.orderStatus == 2 ? '已支付' : '已取消'}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">车&emsp;型</ion-label>
+      <ion-input type="text" [disabled]="true" [(ngModel)]="orderDetails.carTypeName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">颜&emsp;色</ion-label>
+      <ion-input type="text" [disabled]="true" [(ngModel)]="orderDetails.color"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">车架号</ion-label>
+      <ion-input type="text" [disabled]="true" [(ngModel)]="orderDetails.vin"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">折&emsp;扣</ion-label>
+      <ion-input type="text" [disabled]="true" [(ngModel)]="orderDetails.discount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">日&emsp;期</ion-label>
+      <ion-input type="text" [disabled]="true" value="{{orderDetails.createTime | date:'yyyy-MM-dd HH:mm:ss'}}"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label color="dark">操作人</ion-label>
+      <ion-input type="text" [disabled]="true" [(ngModel)]="orderDetails.createUserName"></ion-input>
+    </ion-item>
+
+    <ion-list-header>
+      精品装饰选购明细
+    </ion-list-header>
+    <ion-item *ngFor="let details of orderDetails.orderDetailList">
+      <ion-thumbnail item-start>
+        <img [src]="details.baseMasterUrl == '' ? './assets/img/category/default_img.png' : details.baseMasterUrl">
+      </ion-thumbnail>
+      <h2 class="normal">{{details.productName}}</h2>
+      <p margin-top>数量 x{{details.buyNum}}</p>
+      <ion-note item-end color="oranger" class="price"><ion-icon class="iconfont icon-rmb"></ion-icon>{{(details.productPrice * details.buyNum).toFixed(2)}}</ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-row padding-right margin-bottom>
+    <ion-col col-12 text-right>
+      精品合计：<ion-note color="oranger"><ion-icon class="iconfont icon-rmb"></ion-icon>{{orderDetails.totalPrice.toFixed(2)}}</ion-note>
+    </ion-col>
+    <ion-col col-12 text-right>
+      折扣金额：<ion-note color="danger">-<ion-icon class="iconfont icon-rmb"></ion-icon>{{orderDetails.discountPrice.toFixed(2)}}</ion-note>
+    </ion-col>
+    <ion-col col-12 text-right>
+      实付金额：<ion-note color="oranger" class="price"><ion-icon class="iconfont icon-rmb"></ion-icon>{{orderDetails.actualPrice.toFixed(2)}}</ion-note>
+    </ion-col>
+    <ion-col col-12 text-right>
+      &emsp;
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer no-margin no-padding *ngIf="orderDetails.orderStatus == 1">
+  <button (click)="signature()" full no-margin ion-button block color="base">签&emsp;字</button>
+</ion-footer>

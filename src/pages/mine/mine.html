@@ -1,0 +1,38 @@
+<ion-content>
+  <ion-card>
+    <img src="./assets/img/logo.png"/>
+    <ion-card-content text-center *ngIf="userInfo != null">
+      <ion-card-title>
+        {{userInfo.userName}}
+      </ion-card-title>
+      <p>
+        <ion-note [color]="userInfo.level == 1 ? 'dark' : userInfo.level == 2 ? 'base' : 'danger'">{{userInfo.level == 1 ? '职员' : userInfo.level == 2 ? '经理' : userInfo.level == 3 ? '管理员' : '收银员'}}</ion-note>
+      </p>
+    </ion-card-content>
+    <ion-card-content text-center *ngIf="userInfo == null">
+      <ion-card-title>
+        未登录
+      </ion-card-title>
+      <p text-center>
+        <button ion-button (click)="signIn()" clear small color="base">
+          <ion-icon name='sign-in'></ion-icon>
+          登陆
+        </button>
+      </p>
+    </ion-card-content>
+    <ion-row no-padding *ngIf="userInfo != null">
+      <ion-col text-left *ngIf="isPlatform">
+        <button ion-button (click)="syncUpdate()" clear small color="base" icon-start>
+          <ion-icon name='cloud-download'></ion-icon>
+          检查更新
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button (click)="signOut()" clear small color="danger" icon-start>
+          <ion-icon name='exit'></ion-icon>
+          退出登陆
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>购物车</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- 购物车空空如也 -->
+  <div class="cart-no" *ngIf="shoppingCartList.length == 0">
+    <ion-icon name="ios-cart-outline"></ion-icon><br/>购物车空空如也
+  </div>
+  <ion-list no-margin margin-top margin-bottom>
+    <button ion-item *ngFor="let item of shoppingCartList">
+      <ion-checkbox color="base" [(ngModel)]="item.checked" (ionChange)="updateItemsAmt()"></ion-checkbox>
+      <ion-thumbnail item-start>
+        <img [src]="item.attachment == null ? '' : item.attachment.baseUrl"/>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{item.productName}}</h2>
+        <p margin-vertical></p>
+        <p>
+          <ion-note color="danger"><ion-icon class="iconfont icon-rmb"></ion-icon>{{item.price.toFixed(2)}}</ion-note>
+        </p>
+      </ion-label>
+      <div item-end text-right>
+        <ion-buttons text-center class="add-sub">
+          <button ion-button small outline color="base" (click)="$event.stopPropagation();itemHandle(item, 'less');" *ngIf="item.num != 1"><ion-icon name="ios-remove-outline"></ion-icon></button>
+          <button ion-button small clear color="dark" *ngIf="item.num != 1" disabled>{{item.num}}</button>
+          <button ion-button small outline color="base" (click)="$event.stopPropagation();itemHandle(item, 'add');"><ion-icon name="ios-add-outline"></ion-icon></button>
+        </ion-buttons>
+        <br/>
+        <button ion-button clear color="danger" class="item-total" *ngIf="item.num != 1"><ion-icon class="iconfont icon-rmb"></ion-icon>{{(item.price * item.num).toFixed(2)}}</button>
+        <button ion-button icon-only clear margin-left color="icon-gary" (click)="$event.stopPropagation();itemHandle(item, 'del');"><ion-icon name="trash"></ion-icon></button>
+      </div>
+    </button>
+  </ion-list>
+</ion-content>
+<ion-footer ion-row no-margin no-padding *ngIf="shoppingCartList.length != 0">
+  <button col full no-margin ion-button block disabled color="white">
+    <ion-note color="danger">总计<ion-icon class="iconfont icon-rmb"></ion-icon>{{itemsAmt}}</ion-note>
+  </button>
+  <button (click)="confirm()" col full no-margin ion-button block color="oranger">结算</button>
+</ion-footer>

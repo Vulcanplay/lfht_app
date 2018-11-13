@@ -1,0 +1,29 @@
+<ion-content  style="background-color: #000 !important;color: #fff">
+  <div #panel class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let path of picturePaths">
+        <div class="swiper-zoom-container">
+          <img data-src="{{path}}" (press)="onHold(path)" class="swiper-lazy">
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <ion-fab right bottom small *ngIf="!hideFatButton">
+    <button ion-fab color="light" (click)="download(picturePaths[0]);"><ion-icon name="ios-download"></ion-icon></button>
+    <!--<ion-fab-list side="left">
+      <button ion-fab (click)="download(picturePaths[0]);"><ion-icon name="ios-download"></ion-icon></button>
+    </ion-fab-list>-->
+  </ion-fab>
+
+  <ion-fab right bottom small *ngIf="hideFatButton">
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="signature()" color="oranger"><ion-icon name="ios-brush"></ion-icon></button>
+      <button ion-fab (click)="upload()" color="base"><ion-icon name="ios-cloud-upload"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+</ion-content>

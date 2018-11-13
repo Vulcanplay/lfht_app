@@ -1,0 +1,172 @@
+<ion-header>
+  <ion-toolbar no-border-top>
+    <ion-searchbar placeholder="类目"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-grid class="category" no-padding>
+    <ion-row class="first-row">
+      <ion-scroll col col-4 scrollY="true">
+        <ion-list>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌一号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center class="active">
+            <ion-label>汽车品牌二号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+          <ion-item no-padding no-margin text-center>
+            <ion-label>汽车品牌三号</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-scroll>
+      <ion-scroll col col-8 scrollY="true">
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+            <ion-col text-center col-12 col-md-4 col-lg-3 col-xl-2>
+              <div class="img-contain"></div>
+              <p margin-vertical>类目名称</p>
+            </ion-col>
+
+
+          </ion-row>
+        </ion-grid>
+      </ion-scroll>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,35 @@
+page-category-details {
+  .banner-ion-slides{ height: 38rem;}
+  .banner-ion-slides ion-slide{background-position: center center;background-size: contain; background-repeat: no-repeat;}
+  .swiper-pagination-bullet-active{background-color: color($colors, white)}
+  ion-list{ border-top: 1px solid #dedede; margin-top: 0 !important;}
+  .product-info ion-note[item-end]{ font-size: 3rem; }
+  .product-info ion-note[item-end] .iconfont{ font-size: 2rem;}
+  .card-background-page {
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+
+  }
+
+  ion-footer [ion-button] ion-icon{ font-size: 2.7rem;}
+  ion-footer .badge-md{ font-size: 1.2rem; border-radius: 5px !important; font-weight: bold; background-color: transparent; border:1px solid color($colors, danger);padding: 1px 3px; color: color($colors, danger); position: absolute; top: 1px; right: calc(50% - 40px); z-index: 5; }
+}

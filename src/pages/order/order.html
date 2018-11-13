@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      订单列表
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="松开刷新"
+      refreshingSpinner="circles"
+      refreshingText="正在刷新"></ion-refresher-content>
+  </ion-refresher>
+  <!-- 文字提示区域 -->
+  <div class="order-no" *ngIf="orderList.length == 0 && isSign">暂无精品订单</div>
+  <div class="sign-no" *ngIf="!isSign">未登录</div>
+  <ion-card *ngFor="let item of orderList">
+    <ion-card-content>
+      <ion-card-title color="dark">
+        {{item.orderId}}
+        <ion-badge [color]="item.orderStatus == 1 ? 'danger' : item.orderStatus == 2 ? 'secondary' : 'gary'">{{item.orderStatus == 1 ? '待支付' : item.orderStatus == 2 ? '已支付' : '已取消'}}</ion-badge>
+      </ion-card-title>
+    </ion-card-content>
+    <ion-list>
+      <!-- 多件商品 -->
+      <button ion-item class="item-bg" *ngIf="item.orderDetailList.length > 1" (click)="orderDetails(item)">
+        <ion-row item-start>
+          <ion-col text-center *ngFor="let details of item.orderDetailList">
+            <div class="img-contain" *ngIf="details.baseMasterUrl != ''" [style.background-image]="getBackground(details.baseMasterUrl)"></div>
+            <div class="img-contain" *ngIf="details.baseMasterUrl == ''" style="background-image: url(./assets/img/category/default_img.png)"></div>
+          </ion-col>
+        </ion-row>
+        <ion-note item-end color="oranger" class="price"><ion-icon class="iconfont icon-rmb"></ion-icon>{{item.actualPrice.toFixed(2)}}</ion-note>
+        <ion-note item-end color="gary" class="line-through"><ion-icon class="iconfont icon-rmb"></ion-icon>{{item.totalPrice.toFixed(2)}}</ion-note>
+      </button>
+      <!-- 单件商品 -->
+      <div *ngIf="item.orderDetailList.length == 1">
+        <button ion-item class="item-bg" *ngFor="let details of item.orderDetailList" (click)="orderDetails(item)">
+          <ion-thumbnail item-start>
+            <img [src]="details.baseMasterUrl == '' ? './assets/img/category/default_img.png' : details.baseMasterUrl">
+          </ion-thumbnail>
+          <h2 class="normal">{{details.productName}}</h2>
+          <p margin-top>数量 x{{details.buyNum}}</p>
+          <ion-note item-end color="oranger" class="price"><ion-icon class="iconfont icon-rmb"></ion-icon>{{item.actualPrice.toFixed(2)}}</ion-note>
+          <ion-note item-end color="gary" class="line-through"><ion-icon class="iconfont icon-rmb"></ion-icon>{{item.totalPrice.toFixed(2)}}</ion-note>
+        </button>
+      </div>
+    </ion-list>
+    <ion-row no-padding>
+      <ion-col col-6>
+        <button ion-button clear small color="dark" class="margin-left-5" [disabled]="true">
+          {{ item.createTime | date:'yyyy-MM-dd HH:mm:ss' }}
+        </button>
+      </ion-col>
+      <ion-col col-6 text-right>
+        <button ion-button outline small color="base" icon-start (click)="cancel(item)" *ngIf="item.orderStatus == 1">
+          <ion-icon name='close'></ion-icon>
+          取消订单
+        </button>
+        <button ion-button outline small color="oranger" icon-start (click)="orderDetails(item)">
+          <ion-icon name='return-right'></ion-icon>
+          查看详情
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <div *ngIf="!canLoadMore" text-center margin-vertical><ion-note color="icon-gary">没有更多了</ion-note></div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="canLoadMore">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="正在加载"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

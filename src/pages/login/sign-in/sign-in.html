@@ -1,0 +1,18 @@
+<ion-content>
+  <form [formGroup]="loginForm">
+    <ion-list no-margin margin-top padding>
+      <ion-item margin-vertical>
+        <ion-label color="icon-gary"><ion-icon name="contact"></ion-icon></ion-label>
+        <ion-input type="text" color="dark" placeholder="用户名" formControlName="userName" clearInput></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="icon-gary"><ion-icon name="lock"></ion-icon></ion-label>
+        <ion-input type="password" placeholder="密码" formControlName="password" clearInput></ion-input>
+      </ion-item>
+      <ion-item></ion-item>
+    </ion-list>
+    <div padding-horizontal>
+      <button ion-button block color="base" type="submit" [disabled]="!loginForm.valid || submitted" (click)="signIn(loginForm.value)"><ion-icon name="log-in"></ion-icon>&nbsp;登&nbsp; 录</button>
+    </div>
+  </form>
+</ion-content>

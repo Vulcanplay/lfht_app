@@ -1,0 +1,188 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+$font-family-md-base: "Microsoft YaHei";
+$font-family-ios-base: "Microsoft YaHei";
+$font-family-wp-base: "Microsoft YaHei";
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  oranger:    #eb6100,
+  energized:  #ffb03f,
+  white:      #ffffff,
+  light:      #f4f4f4,
+  gary:       #cccccc,
+  garydark:   #999999,
+  dark:       #444444,
+  base:       #4da9eb,
+  content-bg: #ffffff,
+  garylight:  #d5d5d5,
+  icon-gary:  #7d7d7d
+);
+$weight-lighter: lighter;
+$custom-list-border-color: #f5f5f5;
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+
+@import "ionic.theme.default";
+
+$toolbar-background: color($colors, base);
+$toolbar-ios-border-color: color($colors, base);
+$toolbar-ios-title-font-weight: $weight-lighter;
+$toolbar-ios-title-font-size: 1.6rem;
+ion-toolbar ion-tabs .tabbar{opacity: 1;}
+$tabs-background: color($colors, white);
+$tabs-tab-color-active: color($colors, base);
+$tabs-tab-color-inactive: #999999;
+$tabs-ios-border-color:$custom-list-border-color;
+$searchbar-ios-input-height: 33px;
+$searchbar-ios-background-color: color($colors, primary);
+//ion-item
+$item-ios-body-text-font-size:1.4rem;
+//ion-button
+$button-ios-height:2.6em;
+//ion-input ion-label
+$text-input-ios-margin-top:2px;
+$text-input-ios-margin-bottom:2px;
+$text-input-ios-margin-left:6px !important;
+$label-ios-margin-start:6px;
+$label-ios-margin-end:6px;
+$label-ios-margin-top:6px;
+$label-ios-margin-bottom:6px;
+$text-input-highlight-color-valid: color($colors, gary);
+$text-input-highlight-color-invalid: color($colors, gary);
+$badge-font-weight: $weight-lighter;
+$badge-font-size: 1.4rem;
+$checkbox-ios-icon-border-color-off: #bfbfbf;
+//searchbar
+$searchbar-ios-toolbar-input-background:rgba(255, 255, 255, 0.98);
+//覆盖border宽度(1PX)，原始.55px (仅支持IOS)
+$hairlines-width: 1px;
+//覆盖列表border颜色，原颜色较深
+$list-border-color: $custom-list-border-color;
+//覆盖button item 图标颜色
+$item-ios-detail-push-color: color($colors, gary);
+
+// iconfont
+.iconfont.lg{font-size: 20px;}
+.text-over-dot{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.line-through{text-decoration: line-through;}
+.normal{white-space: normal;}
+.hr{ width: 100%; height: 1rem; background-color:#f0f2f5 ; display: block; position: relative;}
+.searchbar-btn.bar-button-md{ font-size: 3rem; padding: 0 16px; background-color: #f4f4f4; color: #999999; height: 49px;}
+.icon-large{ font-size: 3rem;}
+// custom
+.font-base{color:color($colors, base);}
+.border-left:before{ content: ''; position: absolute; left: 0; top: 0; width: 1px; height: 100%; background-color: $custom-list-border-color;}
+.content-ios, .content-md, .content-wp{background-color: color($colors, content-bg) !important;}
+.item-ios .item-button.send-code{padding: 0 .5em 0 1.5em; font-size:1.4rem;}
+.white-bg{background-color: white;}
+//ion-toggle
+ion-item .toggle-ios .toggle-icon{ background-color: $custom-list-border-color; }
+// custom filter-tabs
+.filter-tabs .button-small-ios,.filter-tabs .button-small-wd,.filter-tabs .button-small-wp{ height: 1.9em;font-size: 1.4rem;}
+.filter-tabs-bottom-line::after{content: '';position: absolute;bottom: -4px;left: 0;height: 3px;width:70%; margin:0 15%;background-color: color($colors,oranger);}
+// custom end
+ion-label.required:after { //表单必填项样式
+  content: '*';
+  color: #DB2828;
+  padding-left: 3px;
+}
+
+.validation-failed { //表单验证失败样式
+  float: right;
+  padding-right: 10px;
+  color: #ff0000;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.clear-fix:before,
+.clear-fix:after { //清除浮动
+  display: table;
+  content: " ";
+}
+
+.clear-fix:after {
+  clear: both;
+}
+
+.content-background.content-ios {
+  background-color: #f2f2f2;
+}
+//清除上1+下1滚动
+.content-ios .scroll-content::after, .content-ios .scroll-content::before {
+  content: normal !important;
+}
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon fonts for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
